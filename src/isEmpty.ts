@@ -17,9 +17,5 @@ export const isEmpty = (obj: any) => {
         return true;
     }
 
-    if (!(typeof(obj) === "number") && !Object.keys(obj).length) {
-        return true;
-    }
-
-    return false;
+    return (!(typeof(obj) === "number") && !Object.keys(obj).length && Object.prototype.toString.call(obj) !== '[object Date]')
 };

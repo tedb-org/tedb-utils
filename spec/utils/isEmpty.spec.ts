@@ -18,6 +18,8 @@ describe('testing isEmpty', () => {
         const ar: string[] = ["a"];
         const object: any = {a : "a"};
         const st: string = "abc";
+        const date: Date = new Date();
+        expect(isEmpty(date)).toBe(false);
         expect(isEmpty(ar)).toBe(false);
         expect(isEmpty(object)).toBe(false);
         expect(isEmpty(st)).toBe(false);
