@@ -1,6 +1,6 @@
 {
     "name": "tedb-utils",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Utils library for TeDB suite of packages",
     "main": "dist/bundle.js",
     "scripts": {

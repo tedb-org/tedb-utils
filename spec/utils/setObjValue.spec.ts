@@ -10,6 +10,7 @@ describe('testing setPath', () => {
                 num: 3,
             },
         },
+        canUndefine: 3,
     };
 
     test('setting nested path', () => {
@@ -23,4 +24,10 @@ describe('testing setPath', () => {
         setObjValue(obj, path, 'string');
         expect(obj.notNested).toEqual('string');
     });
+
+    test('setting value to undefined', () => {
+        const path = 'canUndefine';
+        setObjValue(obj, path, undefined);
+        expect(obj.canUndefine).toBe(undefined);
+    })
 });

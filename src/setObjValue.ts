@@ -8,7 +8,7 @@
 export const setObjValue = (obj: any, path: any, value: any): any => {
     if (typeof path === 'string') {
         return setObjValue(obj, path.split('.'), value);
-    } else if ((path.length === 1) && (value !== undefined)) {
+    } else if (path.length === 1) {
         return obj[path[0]] = value;
     } else if (path.length === 0) {
         return obj;
