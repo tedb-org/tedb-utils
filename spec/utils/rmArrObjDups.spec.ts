@@ -11,13 +11,13 @@ describe("testing rmArrObjDups", () => {
             }, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {
                 a: 2,
                 b: 3
-            }, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3},
+            }, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3}, {a: 2, b: 3},{a:4, b: 3}
         ];
-        let docs2 = [];
+        let docs2: any[] = [];
         for (let i = 0; i <= 10000; i++) {
             docs2 = [...docs2, ...docs];
         }
-        expect(rmArrObjDups(docs, "a").length).toEqual(2);
-        expect(rmArrObjDups(docs2, "a").length).toEqual(2);
+        expect(rmArrObjDups(docs, "a").length).toEqual(3);
+        expect(rmArrObjDups(docs2, "a").length).toEqual(3);
     });
 });
