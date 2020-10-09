@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanPlugin = require('clean-webpack-plugin');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const BundleAnalyserPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const environment = process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase().trim() : 'development';
 const production = environment === 'production';
@@ -12,7 +10,7 @@ console.log(`Building for ${environment}`);
 console.log(workingDir);
 
 let plugins = [
-    new CleanPlugin('dist'),
+    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify('production'),
@@ -20,8 +18,7 @@ let plugins = [
     }),
     new webpack.LoaderOptionsPlugin({
         debug: true,
-    }),
-    new webpack.NamedModulesPlugin(),
+    })
 
     // new BundleAnalyserPlugin(),
 ];
@@ -31,8 +28,6 @@ if (production) {
         new webpack.optimize.MinChunkSizePlugin({
             minChunkSize: 51200,
         }),
-        new UglifyJSPlugin(),
-        new MinifyPlugin(),
     ]);
 }
 
@@ -51,7 +46,7 @@ module.exports = {
                 test: /\.ts?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'ts-loader',
+                    loader: 'babel-loader',
                 }
             },
             {

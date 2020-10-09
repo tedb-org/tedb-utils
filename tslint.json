@@ -1,9 +1,7 @@
 {
-  "defaultSeverity": "error",
   "extends": [
     "tslint:recommended"
   ],
-  "jsRules": {},
   "rules": {
     "variable-name": [true, "ban-keywords"],
     "ordered-imports": false,
@@ -14,6 +12,5 @@
     "no-console": false,
     "typedef-whitespace": false,
     "quotemark": [ true, "single", "jsx-double", "avoid-escape"]
-  },
-  "rulesDirectory": []
+  }
 }
