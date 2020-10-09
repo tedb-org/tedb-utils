@@ -12,8 +12,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "node_modules/**/*.d.ts"
+    "**/src/**/*.ts"
   ],
   "exclude": [
     "dist",
